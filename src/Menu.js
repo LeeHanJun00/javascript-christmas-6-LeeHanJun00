@@ -23,6 +23,7 @@ class Menu {
     const menuList = splitUserInputMenu.reduce((acc, str) => {
       const [name, value] = str.split('-');
       acc[name] = parseFloat(value);
+
       return acc;
     }, {});
 
@@ -31,6 +32,7 @@ class Menu {
 
   async validate(menuList) {
     Validator.checkMenuName(menuList);
+    Validator.checkSameMenuName(menuList);
     Validator.checkOnlyOrderDrink(menuList);
     Validator.checkNumberOfMenus(menuList);
     Validator.checkMaxOrder(menuList);

@@ -12,6 +12,17 @@ class Validator {
     return;
   }
 
+  static checkSameMenuName(userInput) {
+    const userInputNames = Object.keys(userInput);
+    const setUserInputNames = new Set(userInputNames);
+
+    if (setUserInputNames.size !== userInputNames.length) {
+      throw new Error(ERROR.inputMenu);
+    }
+
+    return;
+  }
+
   static checkOnlyOrderDrink(userInput) {
     const userInputNames = Object.keys(userInput);
     const DRINK_NAMES = Object.keys(DRINK);
@@ -27,7 +38,7 @@ class Validator {
     const numberOfMenus = Object.values(userInput);
 
     numberOfMenus.forEach((number) => {
-      if (isNaN(number) || !Number.isInteger(number)) {
+      if (isNaN(number) || !Number.isInteger(number) || number < 1) {
         throw new Error(ERROR.inputMenu);
       }
     });
