@@ -12,6 +12,19 @@ class Validator {
     return;
   }
 
+  static checkDate(userInput) {
+    const date = parseFloat(userInput);
+    if (userInput < 1 || userInput > 31) {
+      throw new Error(ERROR.ipnutDate);
+    }
+
+    if (!Number.isInteger(date)) {
+      throw new Error(ERROR.ipnutDate);
+    }
+
+    return;
+  }
+
   static checkSameMenuName(userInput) {
     const userInputNames = Object.keys(userInput);
     const setUserInputNames = new Set(userInputNames);
