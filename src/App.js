@@ -1,4 +1,3 @@
-import InputView from './views/InputView.js';
 import OutputView from './views/OutputView.js';
 import Menu from './Menu.js';
 import Benefit from './Benefit.js';
@@ -18,6 +17,7 @@ class App {
     const benefit = new Benefit();
     await benefit.benefitCheck(visitDate, menuLsit, totalPrice);
     OutputView.printGiftMenu(benefit.giftEvent);
+    OutputView.printBenefit(benefit);
   }
 }
 

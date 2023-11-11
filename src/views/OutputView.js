@@ -31,6 +31,19 @@ const OutputView = {
       Console.print(`없음`);
     }
   },
+
+  printBenefit(benefit) {
+    Console.print('\n<혜택 내역>');
+    if (benefit.christmasDiscount > 0)
+      Console.print(`크리스마스 디데이 할인: -${benefit.christmasDiscount.toLocaleString()}원`);
+    if (benefit.giftEvent > 0) Console.print(`증정 이벤트: -${benefit.giftEvent.toLocaleString()}원`);
+    if (benefit.weekdayDiscount > 0) Console.print(`평일 할인: -${benefit.weekdayDiscount.toLocaleString()}원`);
+    if (benefit.weekendDiscount > 0) Console.print(`주말 할인: -${benefit.weekendDiscount.toLocaleString()}원`);
+    if (benefit.specialDiscount > 0) Console.print(`특별 할인: -${benefit.specialDiscount.toLocaleString()}원`);
+    if (Object.values(benefit).every((value) => value === 0)) {
+      Console.print('없음');
+    }
+  },
 };
 
 export default OutputView;
