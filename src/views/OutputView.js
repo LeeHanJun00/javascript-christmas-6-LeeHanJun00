@@ -55,6 +55,11 @@ const OutputView = {
       Console.print(`-${amount.toLocaleString()}원`);
     }
   },
+
+  printAfterDiscount(afterDiscountPrice) {
+    Console.print('\n<할인 후 예상 결제 금액>');
+    Console.print(`${afterDiscountPrice.toLocaleString()}원`);
+  },
 };
 
 export default OutputView;

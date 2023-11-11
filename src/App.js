@@ -19,6 +19,8 @@ class App {
     OutputView.printGiftMenu(benefit.giftEvent);
     OutputView.printBenefit(benefit);
     OutputView.printTotalBenefitAmount(benefit.totalDiscountPrice);
+    const afterDiscountPrice = await calculateAfterDiscountAmount(totalPrice, benefit);
+    OutputView.printAfterDiscount(afterDiscountPrice);
   }
 }
 
