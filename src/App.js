@@ -17,6 +17,7 @@ class App {
     OutputView.printTotalAmount(totalPrice);
     const benefit = new Benefit();
     await benefit.benefitCheck(visitDate, menuLsit, totalPrice);
+    OutputView.printGiftMenu(benefit.giftEvent);
   }
 }
 

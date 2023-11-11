@@ -20,6 +20,17 @@ const OutputView = {
     Console.print('\n<할인 전 총주문 금액>');
     Console.print(`${totalPrice.toLocaleString()}원`);
   },
+
+  printGiftMenu(benefit) {
+    Console.print('\n<증정 메뉴>');
+    if (benefit === 25000) {
+      Console.print(`샴페인 1개`);
+    }
+
+    if (benefit === 0) {
+      Console.print(`없음`);
+    }
+  },
 };
 
 export default OutputView;
