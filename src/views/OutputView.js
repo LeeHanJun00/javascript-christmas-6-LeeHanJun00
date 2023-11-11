@@ -1,5 +1,4 @@
 import { Console } from '@woowacourse/mission-utils';
-import { MENU } from '../constants/Constant.js';
 
 const OutputView = {
   printStart() {
@@ -17,18 +16,9 @@ const OutputView = {
     }
   },
 
-  totalAmount(menuLsit) {
+  printTotalAmount(totalPrice) {
     Console.print('\n<할인 전 총주문 금액>');
-    let totalPrice = 0;
-    for (const item in menuLsit) {
-      if (MENU.hasOwnProperty(item)) {
-        totalPrice += MENU[item] * menuLsit[item];
-      }
-    }
-    const totalAmount = totalPrice.toLocaleString();
-    Console.print(`${totalAmount}원`);
-
-    return totalPrice;
+    Console.print(`${totalPrice.toLocaleString()}원`);
   },
 };
 
