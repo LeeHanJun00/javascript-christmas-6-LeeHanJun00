@@ -21,6 +21,7 @@ class App {
     OutputView.printTotalBenefitAmount(benefit.totalDiscountPrice);
     const afterDiscountPrice = await calculateAfterDiscountAmount(totalPrice, benefit);
     OutputView.printAfterDiscount(afterDiscountPrice);
+    OutputView.printEventBedge(benefit.totalDiscountPrice);
   }
 }
 

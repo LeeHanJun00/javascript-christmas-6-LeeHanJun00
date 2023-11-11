@@ -60,6 +60,14 @@ const OutputView = {
     Console.print('\n<할인 후 예상 결제 금액>');
     Console.print(`${afterDiscountPrice.toLocaleString()}원`);
   },
+
+  printEventBedge(totalDiscountPrice) {
+    Console.print('\n<12월 이벤트 배지>');
+    if (totalDiscountPrice > 5000 && totalDiscountPrice < 10000) Console.print('별');
+    if (totalDiscountPrice > 10000 && totalDiscountPrice < 50000) Console.print('트리');
+    if (totalDiscountPrice > 50000) Console.print('산타');
+    if (totalDiscountPrice < 5000) Console.print('없음');
+  },
 };
 
 export default OutputView;
