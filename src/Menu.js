@@ -4,7 +4,7 @@ import InputView from './views/InputView.js';
 import Validator from './utils/Validator.js';
 
 class Menu {
-  async ipnutMenu() {
+  async checkMenu() {
     try {
       const userInputMenu = await InputView.inputMenu();
       const menuList = await this.splitUserInputMenu(userInputMenu);
@@ -14,7 +14,7 @@ class Menu {
     } catch (error) {
       Console.print(error.message);
 
-      return this.ipnutMenu();
+      return this.checkMenu();
     }
   }
 

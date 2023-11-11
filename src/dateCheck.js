@@ -2,7 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 import InputView from './views/InputView.js';
 import Validator from './utils/Validator.js';
 
-export const inputDate = async () => {
+export const dateCheck = async () => {
   try {
     const visitDate = await InputView.inputDate();
     await validate(visitDate);
@@ -11,7 +11,7 @@ export const inputDate = async () => {
   } catch (error) {
     Console.print(error.message);
 
-    return inputDate();
+    return dateCheck();
   }
 };
 
