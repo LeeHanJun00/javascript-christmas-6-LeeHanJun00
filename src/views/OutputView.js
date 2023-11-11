@@ -63,9 +63,9 @@ const OutputView = {
 
   printEventBedge(totalDiscountPrice) {
     Console.print('\n<12월 이벤트 배지>');
-    if (totalDiscountPrice > 5000 && totalDiscountPrice < 10000) Console.print('별');
-    if (totalDiscountPrice > 10000 && totalDiscountPrice < 50000) Console.print('트리');
-    if (totalDiscountPrice > 50000) Console.print('산타');
+    if (totalDiscountPrice >= 5000 && totalDiscountPrice < 10000) Console.print('별');
+    if (totalDiscountPrice >= 10000 && totalDiscountPrice < 20000) Console.print('트리');
+    if (totalDiscountPrice >= 20000) Console.print('산타');
     if (totalDiscountPrice < 5000) Console.print('없음');
   },
 };
