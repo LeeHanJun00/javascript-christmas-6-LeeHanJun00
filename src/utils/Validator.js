@@ -25,11 +25,15 @@ class Validator {
     return;
   }
 
-  static checkSameMenuName(userInput) {
-    const userInputNames = Object.keys(userInput);
-    const setUserInputNames = new Set(userInputNames);
+  static checkSameMenuName(userInputMenu) {
+    const menuNameArray = userInputMenu.map((item) => {
+      const [name] = item.split('-');
 
-    if (setUserInputNames.size !== userInputNames.length) {
+      return name;
+    });
+
+    const setMenuArray = new Set(menuNameArray);
+    if (setMenuArray.size !== menuNameArray.length) {
       throw new Error(ERROR.inputMenu);
     }
 
