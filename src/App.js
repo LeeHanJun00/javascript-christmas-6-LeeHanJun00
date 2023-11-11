@@ -18,6 +18,7 @@ class App {
     await benefit.benefitCheck(visitDate, menuLsit, totalPrice);
     OutputView.printGiftMenu(benefit.giftEvent);
     OutputView.printBenefit(benefit);
+    OutputView.printTotalBenefitAmount(benefit.totalDiscountPrice);
   }
 }
 

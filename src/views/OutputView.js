@@ -44,6 +44,17 @@ const OutputView = {
       Console.print('없음');
     }
   },
+
+  printTotalBenefitAmount(amount) {
+    Console.print('\n<총혜택 금액>');
+    if (amount === 0) {
+      Console.print(`0원`);
+    }
+
+    if (amount > 0) {
+      Console.print(`-${amount.toLocaleString()}원`);
+    }
+  },
 };
 
 export default OutputView;
