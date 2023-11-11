@@ -1,5 +1,5 @@
 import { ERROR } from '../constants/Constant.js';
-import { MENU, DRINK } from '../constants/Constant.js';
+import { MENU, DRINK, DESERT, MAIN, SPECIAL_DATE } from '../constants/Constant.js';
 class Validator {
   static checkMenuName(userInput) {
     const userInputNames = Object.keys(userInput);
@@ -18,7 +18,7 @@ class Validator {
       throw new Error(ERROR.ipnutDate);
     }
 
-    if (!Number.isInteger(date)) {
+    if (!Number.isInteger(date) || isNaN(userInput)) {
       throw new Error(ERROR.ipnutDate);
     }
 
@@ -67,6 +67,46 @@ class Validator {
     }
 
     return;
+  }
+
+  static checkWeekendOrWeekday(visitDate) {
+    const date = new Date(2023, 11, visitDate);
+    if (date.getDay() >= 0 && date.getDay() <= 4) {
+      return 'weekday';
+    }
+
+    return 'weekend';
+  }
+
+  static countDesert(menuLsit) {
+    let dessertCount = 0;
+    for (const item in menuLsit) {
+      if (DESERT.hasOwnProperty(item)) {
+        dessertCount += menuLsit[item];
+      }
+    }
+
+    return dessertCount;
+  }
+
+  static countMain(menuLsit) {
+    let mainCount = 0;
+    for (const item in menuLsit) {
+      if (MAIN.hasOwnProperty(item)) {
+        mainCount += menuLsit[item];
+      }
+    }
+
+    return mainCount;
+  }
+
+  static specialDate(visitDate) {
+    const date = parseFloat(visitDate);
+    if (SPECIAL_DATE.includes(date)) {
+      return 1000;
+    }
+
+    return 0;
   }
 }
 

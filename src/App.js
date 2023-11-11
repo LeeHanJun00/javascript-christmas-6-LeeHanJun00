@@ -1,8 +1,9 @@
+import InputView from './views/InputView.js';
 import OutputView from './views/OutputView.js';
 import Menu from './Menu.js';
-
+import Benefit from './Benefit.js';
 import { inputDate } from './dateCheck.js';
-import { calculateTotalAmount } from './calculate.js';
+import { calculateTotalAmount, calculateAfterDiscountAmount } from './calculate.js';
 
 class App {
   async run() {
@@ -14,6 +15,8 @@ class App {
     OutputView.printMenu(menuLsit);
     const totalPrice = await calculateTotalAmount(menuLsit);
     OutputView.printTotalAmount(totalPrice);
+    const benefit = new Benefit();
+    await benefit.benefitCheck(visitDate, menuLsit, totalPrice);
   }
 }
 

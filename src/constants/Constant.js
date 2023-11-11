@@ -46,3 +46,5 @@ export const MENU = Object.freeze({
   레드와인: 60000,
   샴페인: 25000,
 });
+
+export const SPECIAL_DATE = [3, 10, 17, 24, 25, 31];
