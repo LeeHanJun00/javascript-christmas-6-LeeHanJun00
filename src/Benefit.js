@@ -58,9 +58,7 @@ class Benefit {
 
   async checkWeekdayDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekday') {
-      const weekdayDiscountAmount = await this.calculateWeekdayDiscountAmount(menuLsit);
-
-      return weekdayDiscountAmount;
+      return this.calculateWeekdayDiscountAmount(menuLsit);
     }
 
     return 0;
@@ -68,9 +66,7 @@ class Benefit {
 
   async checkWeekendDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekend') {
-      const weekendDiscountAmount = await this.calculateWeekendDiscountAmount(menuLsit);
-
-      return weekendDiscountAmount;
+      return this.calculateWeekendDiscountAmount(menuLsit);
     }
 
     return 0;
