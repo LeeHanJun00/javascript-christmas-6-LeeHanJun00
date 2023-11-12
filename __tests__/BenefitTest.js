@@ -79,16 +79,32 @@ describe('평일,주말 혜택 테스트', () => {
 
 describe('특별할인 혜택 테스트', () => {
   const visitDate = [[3], [10], [17], [24], [25], [31]];
-  test.each(visitDate)('달력에 별이있는 날짜 선택시 1000원 할인', async (ipnut) => {
+  test.each(visitDate)('달력에 별이있는 날짜 선택시 1000원 할인', (ipnut) => {
     const output = 1000;
     const benefit = new Benefit();
     expect(benefit.checkSpecialDate(ipnut)).toBe(output);
   });
 
-  test('달력에 별이없는 날짜 선택시 할인혜택 0원', async () => {
+  test('달력에 별이없는 날짜 선택시 할인혜택 0원', () => {
     const visitDate = 15;
     const output = 0;
     const benefit = new Benefit();
     expect(benefit.checkSpecialDate(visitDate)).toBe(output);
+  });
+});
+
+describe('증정이벤트 테스트', () => {
+  test('총 주문금액이 12만원 이상일떄 25000원 샴페인 1개 증정', async () => {
+    const totalPrice = 130000;
+    const output = 25000;
+    const benefit = new Benefit();
+    expect(await benefit.checkGiftEvent(totalPrice)).toBe(output);
+  });
+
+  test('총 주문금액이 12만원 미만일때 증정 혜택 0원', async () => {
+    const totalPrice = 119998;
+    const output = 0;
+    const benefit = new Benefit();
+    expect(await benefit.checkGiftEvent(totalPrice)).toBe(output);
   });
 });
