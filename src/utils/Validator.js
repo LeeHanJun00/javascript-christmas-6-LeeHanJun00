@@ -1,5 +1,5 @@
 import { ERROR } from '../constants/Constant.js';
-import { MENU, DRINK, DESERT, MAIN, SPECIAL_DATE } from '../constants/Constant.js';
+import { MENU, DRINK, DESERT, MAIN, SPECIAL_DATE, AMOUNT } from '../constants/Constant.js';
 class Validator {
   static checkMenuName(userInput) {
     const userInputNames = Object.keys(userInput);
@@ -108,7 +108,7 @@ class Validator {
   static specialDate(visitDate) {
     const date = parseFloat(visitDate);
     if (SPECIAL_DATE.includes(date)) {
-      return 1000;
+      return AMOUNT.specialDateDiscount;
     }
 
     return 0;

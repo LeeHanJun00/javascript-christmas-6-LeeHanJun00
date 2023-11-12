@@ -15,7 +15,7 @@ class Benefit {
     this.giftEvent = await this.checkGiftEvent(totalPrice);
     this.weekdayDiscount = await this.checkWeekdayDiscount(visitDate, menuLsit);
     this.weekendDiscount = await this.checkWeekendDiscount(visitDate, menuLsit);
-    this.specialDiscount = await this.checkSpecialDate(visitDate);
+    this.specialDiscount = this.checkSpecialDate(visitDate);
     this.totalDiscountPrice =
       this.christmasDiscount + this.giftEvent + this.weekdayDiscount + this.weekendDiscount + this.specialDiscount;
   }
@@ -72,7 +72,7 @@ class Benefit {
     return 0;
   }
 
-  async checkSpecialDate(visitDate) {
+  checkSpecialDate(visitDate) {
     const amount = Validator.specialDate(visitDate);
 
     return amount;

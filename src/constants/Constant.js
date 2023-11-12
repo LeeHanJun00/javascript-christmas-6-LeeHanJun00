@@ -54,4 +54,5 @@ export const AMOUNT = Object.freeze({
   discountOnWeekendAndWeekday: 2023,
   christmasDiscountStart: 1000,
   christmasDiscountIncrease: 100,
+  specialDateDiscount: 1000,
 });
