@@ -83,26 +83,16 @@ class Validator {
     return 'weekend';
   }
 
-  static countDessert(menuLsit) {
-    let dessertCount = 0;
-    for (const item in menuLsit) {
-      if (DESSERT.hasOwnProperty(item)) {
-        dessertCount += menuLsit[item];
-      }
-    }
-
-    return dessertCount;
+  static countDessert(menuList) {
+    return Object.keys(menuList)
+      .filter((item) => DESSERT.hasOwnProperty(item))
+      .reduce((dessertCount, item) => dessertCount + menuList[item], 0);
   }
 
-  static countMain(menuLsit) {
-    let mainCount = 0;
-    for (const item in menuLsit) {
-      if (MAIN.hasOwnProperty(item)) {
-        mainCount += menuLsit[item];
-      }
-    }
-
-    return mainCount;
+  static countMain(menuList) {
+    return Object.keys(menuList)
+      .filter((item) => MAIN.hasOwnProperty(item))
+      .reduce((mainCount, item) => mainCount + menuList[item], 0);
   }
 
   static specialDate(visitDate) {
