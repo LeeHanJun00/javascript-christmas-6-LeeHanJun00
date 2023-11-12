@@ -9,23 +9,23 @@ describe('매뉴 입력 기능', () => {
     expect(await menu.splitUserInputMenu(input)).toMatchObject(output);
   });
 
-  test('같은 메뉴를 입력했을 때 에러 출력', async () => {
+  test('같은 메뉴를 입력했을 때 에러 출력', () => {
     const input = ['아이스크림-2', '타파스-3', '제로콜라 - 2', '아이스크림-1'];
-    await expect(() => Validator.checkSameMenuName(input)).toThrowError('[ERROR]');
+    expect(() => Validator.checkSameMenuName(input)).toThrowError('[ERROR]');
   });
 
-  test('음료만 주문했을 때 에러 출력', async () => {
+  test('음료만 주문했을 때 에러 출력', () => {
     const input = { 샴페인: 1, 제로콜라: 2 };
-    await expect(() => Validator.checkOnlyOrderDrink(input)).toThrowError('[ERROR]');
+    expect(() => Validator.checkOnlyOrderDrink(input)).toThrowError('[ERROR]');
   });
 
-  test('각 메뉴를 한번에 20개 초과 주문시 에러 출력', async () => {
+  test('각 메뉴를 한번에 20개 초과 주문시 에러 출력', () => {
     const input = { 티본스테이크: 21, 샴페인: 1, 제로콜라: 2 };
-    await expect(() => Validator.checkMaxOrder(input)).toThrowError('[ERROR]');
+    expect(() => Validator.checkMaxOrder(input)).toThrowError('[ERROR]');
   });
 
-  test('숫자가아닌 잘못된 메뉴개수 입력시 에러 출력', async () => {
+  test('숫자가아닌 잘못된 메뉴개수 입력시 에러 출력', () => {
     const input = { 티본스테이크: 'one', 샴페인: 1, 제로콜라: 2 };
-    await expect(() => Validator.checkNumberOfMenus(input)).toThrowError('[ERROR]');
+    expect(() => Validator.checkNumberOfMenus(input)).toThrowError('[ERROR]');
   });
 });
