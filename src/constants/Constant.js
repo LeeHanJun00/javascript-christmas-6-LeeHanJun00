@@ -48,3 +48,10 @@ export const MENU = Object.freeze({
 });
 
 export const SPECIAL_DATE = [3, 10, 17, 24, 25, 31];
+
+export const AMOUNT = Object.freeze({
+  minimumAmountOfGiftEvent: 120000,
+  discountOnWeekendAndWeekday: 2023,
+  christmasDiscountStart: 1000,
+  christmasDiscountIncrease: 100,
+});

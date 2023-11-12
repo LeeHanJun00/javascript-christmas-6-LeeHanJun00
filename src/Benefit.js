@@ -1,5 +1,5 @@
 import Validator from './utils/Validator.js';
-
+import { AMOUNT, DRINK } from './constants/Constant.js';
 class Benefit {
   constructor() {
     this.totalDiscountPrice = 0;
@@ -29,14 +29,14 @@ class Benefit {
   }
 
   async calculateChristmasDiscountAmount(visitDate) {
-    const discountAmount = (visitDate - 1) * 100 + 1000;
+    const discountAmount = (visitDate - 1) * AMOUNT.christmasDiscountIncrease + AMOUNT.christmasDiscountStart;
 
     return discountAmount;
   }
 
   async checkGiftEvent(totalPrice) {
-    if (totalPrice >= 120000) {
-      return 25000;
+    if (totalPrice >= AMOUNT.minimumOfGiftEvent) {
+      return DRINK.샴페인;
     }
 
     return 0;
@@ -44,14 +44,14 @@ class Benefit {
 
   async calculateWeekdayDiscountAmount(menuLsit) {
     const numberOfDessert = Validator.countDesert(menuLsit);
-    const discountAmount = numberOfDessert * 2023;
+    const discountAmount = numberOfDessert * AMOUNT.discountOnWeekendAndWeekday;
 
     return discountAmount;
   }
 
   async calculateWeekendDiscountAmount(menuLsit) {
     const numberOfMain = Validator.countMain(menuLsit);
-    const discountAmount = numberOfMain * 2023;
+    const discountAmount = numberOfMain * AMOUNT.discountOnWeekendAndWeekday;
 
     return discountAmount;
   }
