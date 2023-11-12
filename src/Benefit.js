@@ -35,7 +35,7 @@ class Benefit {
   }
 
   async checkGiftEvent(totalPrice) {
-    if (totalPrice >= AMOUNT.minimumOfGiftEvent) {
+    if (totalPrice >= AMOUNT.minimumAmountOfGiftEvent) {
       return DRINK.샴페인;
     }
 
@@ -73,9 +73,7 @@ class Benefit {
   }
 
   checkSpecialDate(visitDate) {
-    const amount = Validator.specialDate(visitDate);
-
-    return amount;
+    return Validator.specialDate(visitDate);
   }
 }
 export default Benefit;
