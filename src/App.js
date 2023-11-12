@@ -3,6 +3,7 @@ import Menu from './Menu.js';
 import Benefit from './Benefit.js';
 import { dateCheck } from './utils/dateCheck.js';
 import { calculateAfterDiscountAmount, calculateTotalAmount } from './utils/calculate.js';
+import Validator from './utils/Validator.js';
 
 class App {
   constructor() {
@@ -46,7 +47,8 @@ class App {
     const afterDiscountPrice = await calculateAfterDiscountAmount(this.totalPrice, benefit);
     OutputView.printAfterDiscount(afterDiscountPrice);
 
-    OutputView.printEventBedge(benefit.totalDiscountPrice);
+    const bedgeName = Validator.eventBedge(benefit.totalDiscountPrice);
+    OutputView.printEventBedge(bedgeName);
   }
 }
 

@@ -103,6 +103,12 @@ class Validator {
 
     return 0;
   }
+  static eventBedge(totalDiscountPrice) {
+    if (totalDiscountPrice >= 5000 && totalDiscountPrice < 10000) return '별';
+    if (totalDiscountPrice >= 10000 && totalDiscountPrice < 20000) return '트리';
+    if (totalDiscountPrice >= 20000) return '산타';
+    if (totalDiscountPrice < 5000) return '없음';
+  }
 }
 
 export default Validator;
