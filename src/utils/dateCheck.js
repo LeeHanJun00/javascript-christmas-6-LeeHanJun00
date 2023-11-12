@@ -1,6 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
-import InputView from './views/InputView.js';
-import Validator from './utils/Validator.js';
+import InputView from '../views/InputView.js';
+import Validator from './Validator.js';
 
 export const dateCheck = async () => {
   try {

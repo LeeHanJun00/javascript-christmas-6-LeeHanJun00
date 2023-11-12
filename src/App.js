@@ -1,8 +1,8 @@
 import OutputView from './views/OutputView.js';
 import Menu from './Menu.js';
 import Benefit from './Benefit.js';
-import { dateCheck } from './dateCheck.js';
-import { calculateTotalAmount, calculateAfterDiscountAmount } from './calculate.js';
+import { dateCheck } from './utils/dateCheck.js';
+import { calculateAfterDiscountAmount, calculateTotalAmount } from './utils/calculate.js';
 
 class App {
   constructor() {

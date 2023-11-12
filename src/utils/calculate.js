@@ -1,4 +1,4 @@
-import { MENU } from './constants/Constant.js';
+import { MENU } from '../constants/Constant.js';
 
 export const calculateTotalAmount = async (menuLsit) => {
   let totalPrice = 0;
