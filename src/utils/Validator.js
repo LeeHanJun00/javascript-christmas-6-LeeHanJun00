@@ -1,5 +1,5 @@
 import { ERROR } from '../constants/Constant.js';
-import { MENU, DRINK, DESERT, MAIN, SPECIAL_DATE, AMOUNT } from '../constants/Constant.js';
+import { MENU, DRINK, DESSERT, MAIN, SPECIAL_DATE, AMOUNT } from '../constants/Constant.js';
 class Validator {
   static checkMenuName(userInput) {
     const userInputNames = Object.keys(userInput);
@@ -83,10 +83,10 @@ class Validator {
     return 'weekend';
   }
 
-  static countDesert(menuLsit) {
+  static countDessert(menuLsit) {
     let dessertCount = 0;
     for (const item in menuLsit) {
-      if (DESERT.hasOwnProperty(item)) {
+      if (DESSERT.hasOwnProperty(item)) {
         dessertCount += menuLsit[item];
       }
     }

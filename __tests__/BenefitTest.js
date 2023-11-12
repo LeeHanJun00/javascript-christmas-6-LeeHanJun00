@@ -49,7 +49,7 @@ describe('평일,주말 혜택 테스트', () => {
   test('평일 혜택시 주문한 디저트메뉴 개수세는 기능', () => {
     const input = { 티본스테이크: 1, 초코케이크: 2, 아이스크림: 2, 제로콜라: 2 };
     const output = 4;
-    const result = Validator.countDesert(input);
+    const result = Validator.countDessert(input);
     expect(result).toBe(output);
   });
 

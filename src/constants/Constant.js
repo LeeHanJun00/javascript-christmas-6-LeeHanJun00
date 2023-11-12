@@ -21,7 +21,7 @@ export const MAIN = Object.freeze({
   크리스마스파스타: 25000,
 });
 
-export const DESERT = Object.freeze({
+export const DESSERT = Object.freeze({
   초코케이크: 15000,
   아이스크림: 5000,
 });

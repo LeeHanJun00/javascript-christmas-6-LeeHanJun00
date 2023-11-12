@@ -43,7 +43,7 @@ class Benefit {
   }
 
   async calculateWeekdayDiscountAmount(menuLsit) {
-    const numberOfDessert = Validator.countDesert(menuLsit);
+    const numberOfDessert = Validator.countDessert(menuLsit);
     const discountAmount = numberOfDessert * AMOUNT.discountOnWeekendAndWeekday;
 
     return discountAmount;
