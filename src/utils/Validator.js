@@ -53,11 +53,12 @@ class Validator {
 
   static checkNumberOfMenus(userInput) {
     const numberOfMenus = Object.values(userInput);
-
     numberOfMenus.forEach((number) => {
       if (isNaN(number) || !Number.isInteger(number) || number < 1) {
         throw new Error(ERROR.inputMenu);
       }
+
+      return;
     });
 
     return;

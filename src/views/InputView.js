@@ -10,9 +10,9 @@ const InputView = {
 
   async inputMenu() {
     const input = await Console.readLineAsync(MESSAGE.enterMenu);
+
     return input;
   },
-  // ...
 };
 
 export default InputView;
