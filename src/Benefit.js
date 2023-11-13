@@ -51,20 +51,6 @@ class Benefit {
     return 0;
   }
 
-  async calculateWeekdayDiscountAmount(menuLsit) {
-    const numberOfDessert = Validator.countDessert(menuLsit);
-    const discountAmount = numberOfDessert * AMOUNT.discountOnWeekendAndWeekday;
-
-    return discountAmount;
-  }
-
-  async calculateWeekendDiscountAmount(menuLsit) {
-    const numberOfMain = Validator.countMain(menuLsit);
-    const discountAmount = numberOfMain * AMOUNT.discountOnWeekendAndWeekday;
-
-    return discountAmount;
-  }
-
   async checkWeekdayDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekday') {
       return this.calculateWeekdayDiscountAmount(menuLsit);
@@ -73,12 +59,26 @@ class Benefit {
     return 0;
   }
 
+  async calculateWeekdayDiscountAmount(menuLsit) {
+    const numberOfDessert = Validator.countDessert(menuLsit);
+    const discountAmount = numberOfDessert * AMOUNT.discountOnWeekendAndWeekday;
+
+    return discountAmount;
+  }
+
   async checkWeekendDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekend') {
       return this.calculateWeekendDiscountAmount(menuLsit);
     }
 
     return 0;
+  }
+
+  async calculateWeekendDiscountAmount(menuLsit) {
+    const numberOfMain = Validator.countMain(menuLsit);
+    const discountAmount = numberOfMain * AMOUNT.discountOnWeekendAndWeekday;
+
+    return discountAmount;
   }
 
   checkSpecialDate(visitDate) {

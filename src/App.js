@@ -4,7 +4,6 @@ import Benefit from './Benefit.js';
 import { dateCheck } from './utils/dateCheck.js';
 import { calculateAfterDiscountAmount, calculateTotalAmount } from './utils/calculate.js';
 import Validator from './utils/Validator.js';
-import { AMOUNT } from './constants/Constant.js';
 
 class App {
   constructor() {
@@ -35,10 +34,6 @@ class App {
   async startInputMenu() {
     const menu = new Menu();
     this.menuLsit = await menu.checkMenu(this.visitDate);
-  }
-  async judgeBenefit(totalPrice) {
-    if (totalPrice > AMOUNT.minimumPriceOfEvent) {
-    }
   }
 
   async startPreviewBenefits() {
