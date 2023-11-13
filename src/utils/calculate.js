@@ -1,12 +1,12 @@
 import { MENU } from '../constants/Constant.js';
 
-export const calculateTotalAmount = async (menuLsit) => {
-  let totalPrice = 0;
-  for (const item in menuLsit) {
+export const calculateTotalAmount = async (menuList) => {
+  const totalPrice = Object.keys(menuList).reduce((acc, item) => {
     if (MENU.hasOwnProperty(item)) {
-      totalPrice += MENU[item] * menuLsit[item];
+      return acc + MENU[item] * menuList[item];
     }
-  }
+    return acc;
+  }, 0);
 
   return totalPrice;
 };
