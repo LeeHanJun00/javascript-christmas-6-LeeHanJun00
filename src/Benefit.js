@@ -9,6 +9,15 @@ class Benefit {
     this.weekendDiscount = 0;
     this.specialDiscount = 0;
   }
+  async checkMinimumConditionsToBenefit(visitDate, menuLsit, totalPrice) {
+    if (totalPrice < 10000) {
+      return;
+    }
+
+    if (totalPrice >= 10000) {
+      return this.benefitCheck(visitDate, menuLsit, totalPrice);
+    }
+  }
 
   async benefitCheck(visitDate, menuLsit, totalPrice) {
     this.christmasDiscount = await this.checkChristmasDiscount(visitDate);
