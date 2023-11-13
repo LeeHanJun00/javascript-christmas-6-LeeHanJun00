@@ -10,11 +10,11 @@ class Benefit {
     this.specialDiscount = 0;
   }
   async checkMinimumConditionsToBenefit(visitDate, menuLsit, totalPrice) {
-    if (totalPrice < 10000) {
+    if (totalPrice < AMOUNT.minimumOfEvent) {
       return;
     }
 
-    if (totalPrice >= 10000) {
+    if (totalPrice >= AMOUNT.minimumOfEvent) {
       return this.benefitCheck(visitDate, menuLsit, totalPrice);
     }
   }
