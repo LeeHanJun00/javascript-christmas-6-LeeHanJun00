@@ -13,12 +13,12 @@ class Validator {
   }
 
   static checkDate(userInput) {
-    const date = parseFloat(userInput);
     if (userInput < 1 || userInput > 31) {
       throw new Error(ERROR.ipnutDate);
     }
 
-    if (!Number.isInteger(date) || isNaN(userInput)) {
+    // 문자열이 정수인지 판별
+    if (!/^\d+$/.test(userInput)) {
       throw new Error(ERROR.ipnutDate);
     }
 
