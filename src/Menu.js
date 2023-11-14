@@ -7,9 +7,9 @@ class Menu {
     try {
       const userInputMenu = await InputView.inputMenu();
       const splitCommaUserInputMenu = userInputMenu.split(',');
-      await this.checkSameMenuName(splitCommaUserInputMenu);
-      const menuList = await this.splitUserInputMenu(splitCommaUserInputMenu);
-      await this.validate(menuList);
+      this.checkSameMenuName(splitCommaUserInputMenu);
+      const menuList = this.splitUserInputMenu(splitCommaUserInputMenu);
+      this.validate(menuList);
 
       return menuList;
     } catch (error) {
@@ -19,7 +19,7 @@ class Menu {
     }
   }
 
-  async splitUserInputMenu(userInputMenu) {
+  splitUserInputMenu(userInputMenu) {
     const menuList = userInputMenu.reduce((acc, str) => {
       const [name, value] = str.split('-');
       acc[name] = parseFloat(value);
@@ -30,11 +30,11 @@ class Menu {
     return menuList;
   }
 
-  async checkSameMenuName(userInputMenu) {
+  checkSameMenuName(userInputMenu) {
     Validator.checkSameMenuName(userInputMenu);
   }
 
-  async validate(menuList) {
+  validate(menuList) {
     Validator.checkMenuName(menuList);
     Validator.checkOnlyOrderDrink(menuList);
     Validator.checkNumberOfMenus(menuList);

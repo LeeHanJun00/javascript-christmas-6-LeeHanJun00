@@ -20,30 +20,30 @@ class Benefit {
   }
 
   async benefitCheck(visitDate, menuLsit, totalPrice) {
-    this.christmasDiscount = await this.checkChristmasDiscount(visitDate);
-    this.giftEvent = await this.checkGiftEvent(totalPrice);
-    this.weekdayDiscount = await this.checkWeekdayDiscount(visitDate, menuLsit);
-    this.weekendDiscount = await this.checkWeekendDiscount(visitDate, menuLsit);
+    this.christmasDiscount = this.checkChristmasDiscount(visitDate);
+    this.giftEvent = this.checkGiftEvent(totalPrice);
+    this.weekdayDiscount = this.checkWeekdayDiscount(visitDate, menuLsit);
+    this.weekendDiscount = this.checkWeekendDiscount(visitDate, menuLsit);
     this.specialDiscount = this.checkSpecialDate(visitDate);
     this.totalDiscountPrice =
       this.christmasDiscount + this.giftEvent + this.weekdayDiscount + this.weekendDiscount + this.specialDiscount;
   }
 
-  async checkChristmasDiscount(visitDate) {
+  checkChristmasDiscount(visitDate) {
     if (visitDate >= 1 && visitDate <= 25) {
-      return await this.calculateChristmasDiscountAmount(visitDate);
+      return this.calculateChristmasDiscountAmount(visitDate);
     }
 
     return 0;
   }
 
-  async calculateChristmasDiscountAmount(visitDate) {
+  calculateChristmasDiscountAmount(visitDate) {
     const discountAmount = (visitDate - 1) * AMOUNT.christmasDiscountIncrease + AMOUNT.christmasDiscountStart;
 
     return discountAmount;
   }
 
-  async checkGiftEvent(totalPrice) {
+  checkGiftEvent(totalPrice) {
     if (totalPrice >= AMOUNT.minimumAmountOfGiftEvent) {
       return DRINK.샴페인;
     }
@@ -51,7 +51,7 @@ class Benefit {
     return 0;
   }
 
-  async checkWeekdayDiscount(visitDate, menuLsit) {
+  checkWeekdayDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekday') {
       return this.calculateWeekdayDiscountAmount(menuLsit);
     }
@@ -59,14 +59,14 @@ class Benefit {
     return 0;
   }
 
-  async calculateWeekdayDiscountAmount(menuLsit) {
+  calculateWeekdayDiscountAmount(menuLsit) {
     const numberOfDessert = Validator.countDessert(menuLsit);
     const discountAmount = numberOfDessert * AMOUNT.discountOnWeekendAndWeekday;
 
     return discountAmount;
   }
 
-  async checkWeekendDiscount(visitDate, menuLsit) {
+  checkWeekendDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekend') {
       return this.calculateWeekendDiscountAmount(menuLsit);
     }
@@ -74,7 +74,7 @@ class Benefit {
     return 0;
   }
 
-  async calculateWeekendDiscountAmount(menuLsit) {
+  calculateWeekendDiscountAmount(menuLsit) {
     const numberOfMain = Validator.countMain(menuLsit);
     const discountAmount = numberOfMain * AMOUNT.discountOnWeekendAndWeekday;
 

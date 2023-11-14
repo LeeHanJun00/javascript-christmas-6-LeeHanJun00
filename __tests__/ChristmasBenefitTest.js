@@ -22,10 +22,10 @@ describe('크리스마스 디데이 할인 혜택 테스트', () => {
     expect(await benefit.checkChristmasDiscount(input)).toBe(output);
   });
 
-  test('1일 기준으로 하루마다 할인 혜택 100원증가', async () => {
+  test('1일 기준으로 하루마다 할인 혜택 100원증가', () => {
     const input = 10;
     const output = 1900;
     const benefit = new Benefit();
-    expect(await benefit.checkChristmasDiscount(input)).toBe(output);
+    expect(benefit.checkChristmasDiscount(input)).toBe(output);
   });
 });
