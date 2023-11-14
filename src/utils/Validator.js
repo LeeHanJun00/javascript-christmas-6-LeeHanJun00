@@ -98,11 +98,12 @@ class Validator {
   static specialDate(visitDate) {
     const date = parseFloat(visitDate);
     if (SPECIAL_DATE.includes(date)) {
-      return AMOUNT.specialDateDiscount;
+      return 'SPECIALDATE';
     }
 
-    return 0;
+    return;
   }
+
   static eventBedge(totalDiscountPrice) {
     if (totalDiscountPrice >= 5000 && totalDiscountPrice < 10000) return '별';
     if (totalDiscountPrice >= 10000 && totalDiscountPrice < 20000) return '트리';

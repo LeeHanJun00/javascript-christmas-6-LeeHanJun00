@@ -53,7 +53,9 @@ class Benefit {
 
   checkWeekdayDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekday') {
-      return this.calculateWeekdayDiscountAmount(menuLsit);
+      const weekdayDiscountAmount = this.calculateWeekdayDiscountAmount(menuLsit);
+
+      return weekdayDiscountAmount;
     }
 
     return 0;
@@ -68,7 +70,9 @@ class Benefit {
 
   checkWeekendDiscount(visitDate, menuLsit) {
     if (Validator.checkWeekendOrWeekday(visitDate) === 'weekend') {
-      return this.calculateWeekendDiscountAmount(menuLsit);
+      const weekendDiscountAmount = this.calculateWeekendDiscountAmount(menuLsit);
+
+      return weekendDiscountAmount;
     }
 
     return 0;
@@ -82,7 +86,11 @@ class Benefit {
   }
 
   checkSpecialDate(visitDate) {
-    return Validator.specialDate(visitDate);
+    if (Validator.specialDate(visitDate) !== 'SPECIALDATE') {
+      return 0;
+    }
+
+    return AMOUNT.specialDateDiscount;
   }
 }
 export default Benefit;
