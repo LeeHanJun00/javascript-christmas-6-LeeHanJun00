@@ -5,7 +5,7 @@ import Validator from './Validator.js';
 export const dateCheck = async () => {
   try {
     const visitDate = await InputView.inputDate();
-    await validate(visitDate);
+    validate(visitDate);
 
     return visitDate;
   } catch (error) {
@@ -15,7 +15,7 @@ export const dateCheck = async () => {
   }
 };
 
-const validate = async (input) => {
+const validate = (input) => {
   Validator.checkDate(input);
 
   return;

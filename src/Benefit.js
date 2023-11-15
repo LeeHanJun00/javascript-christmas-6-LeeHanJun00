@@ -19,7 +19,7 @@ class Benefit {
     }
   }
 
-  async benefitCheck(visitDate, menuLsit, totalPrice) {
+  benefitCheck(visitDate, menuLsit, totalPrice) {
     this.christmasDiscount = this.checkChristmasDiscount(visitDate);
     this.giftEvent = this.checkGiftEvent(totalPrice);
     this.weekdayDiscount = this.checkWeekdayDiscount(visitDate, menuLsit);
